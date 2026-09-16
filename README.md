@@ -63,7 +63,7 @@ ori rt, rs, imm      # rt <- rs | {16'h0000, imm}
 |------|------|------|
 | 取指 | `inst_rom` | 用 `pc` 当地址读出 32 位指令 |
 | 译码 | `id` | 判断 `opcode == 001101`；拆出 rs/rt/imm；`imm` 零扩展为 `{16'h0, imm}`；输出读地址去寄存器堆读 `rs` |
-| 执行 | `ex` | ALU 计算 `rs_value | zext_imm` |
+| 执行 | `ex` | ALU 计算 `rs_value 和 zext_imm` |
 | 写回 | `regfile` | 时钟沿写入 `rt`；`rt == $0` 时无写使能 |
 
 ## 5. 时钟节拍：上升沿与指令周期
